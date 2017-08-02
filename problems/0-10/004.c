@@ -11,8 +11,9 @@ int main ()
     int number_a = 100;
     int number_b = 999;
     int highest_palindrome = 0;
+    int limit = 100;
 
-    while (number_b >= 100)
+    while (number_b >= limit)
     {
         number_a = 100;
         while (number_a <= 999)
@@ -25,6 +26,7 @@ int main ()
             number_a++;
         }
         number_b--;
+        limit++;
     }
 
     printf("The highest palindromic number multiplied of two 3 digit numbers is %i\n\n", highest_palindrome);
