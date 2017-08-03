@@ -15,30 +15,22 @@ int main()
 
     printf("Searching for highest prime of %" PRIu64 "\n\n", input);
 
-    for (i = 2; i <= input; i++)
+    uint64_t current_numerator = input;
+    uint64_t current_denominator = 2;
+    while ((current_denominator * current_denominator) <= current_numerator)
     {
-        if (input % i == 0)
+        if (current_numerator % current_denominator == 0)
         {
-            if (is_prime(i))
+            current_numerator = current_numerator / current_denominator;
+            if (current_denominator > highest_prime_factor)
             {
-                highest_prime_factor = i;
+                highest_prime_factor = current_denominator;
             }
+        } else {
+            current_denominator++;
         }
     }
 
     printf("The highest prime factor of %" PRIu64 " is %" PRIu64 "\n\n", input, highest_prime_factor);
-
     return 0;
-}
-
-int is_prime(uint64_t value)
-{
-    for (uint64_t i = 2; i <= value; i++)
-    {
-        if (value %i == 0)
-        {
-            return 0;
-        }
-    }
-    return 1;
 }
