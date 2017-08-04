@@ -15,6 +15,16 @@ int main()
 
     printf("Searching for highest prime of %" PRIu64 "\n\n", input);
 
+    /*
+        This technique is a faster way of searching for primes.  Rather than iterate every numer up to `input` and testing it,
+        we divide the input by 2, and keep dividing by 2 until the modulo of the equation is not 0.
+
+        When the numerator modulo the denominator is > 0, we know the number no longer divides, and is a prime.
+
+        At that point, we increment the denominator, and start again.
+
+        The process continues repeating until denominator^2 > numerator.
+    */
     uint64_t current_numerator = input;
     uint64_t current_denominator = 2;
     while ((current_denominator * current_denominator) <= current_numerator)
