@@ -9,9 +9,8 @@ int is_prime(uint64_t);
 
 int main()
 {
-    uint64_t input = 600851475143;
-    uint64_t i;
-    uint64_t highest_prime_factor = 1;
+    uint64_t input = 600851475143;      // The input is greater than int, greater than uint, greater than long, and C has no long long, so we have to import help!
+    uint64_t highest_prime_factor = 1;  // This could realistically be an int/uint, but just in case eh?
 
     printf("Searching for highest prime of %" PRIu64 "\n\n", input);
 
@@ -41,6 +40,7 @@ int main()
         }
     }
 
+    // uint64_t has no in-string placeholder, so we do this:
     printf("The highest prime factor of %" PRIu64 " is %" PRIu64 "\n\n", input, highest_prime_factor);
     return 0;
 }
